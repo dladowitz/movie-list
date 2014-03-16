@@ -1,0 +1,5 @@
+platform :ios, '7.0'
+pod 'JSONKit',       '~> 1.4'
+pod 'Reachability',  '~> 3.0'
+pod 'MBProgressHUD', '~> 0.8'
+pod 'AFNetworking', '~> 2.2'

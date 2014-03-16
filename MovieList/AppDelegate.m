@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ListViewController.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    // Create List View Controller
+    ListViewController *lvc = [[ListViewController alloc] init];
+//    self.window.rootViewController = lvc;
+    
+    // Create the navigation controller
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:lvc];
+    
+    self.window.rootViewController = navigationController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
