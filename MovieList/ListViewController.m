@@ -41,7 +41,7 @@
     self.tableView.delegate = self;
     
     [self showSpinnerAnimation];
-    [self getMoviesFromAPI];
+//    [self getMoviesFromAPI];
 
 }
 
@@ -58,23 +58,34 @@
 //    MovieCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomMovieCell"];
 //    cell.movieTitle.text = @"Hello World";
 //    return cell;
-    
-// Not using a UITableViewCell
-//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"] ];
-//    return cell;
 
     
 // Using a default UITableViewCell
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MyIdentifier"];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    }
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
-//    return cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MyIdentifier"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
+    
+    // Setting images
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    __weak UITableViewCell *weakCell = cell;
+    
+    [cell.imageView setImageWithURLRequest:request
+                          placeholderImage:placeholderImage
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                       
+                                       weakCell.imageView.image = image;
+                                       [weakCell setNeedsLayout];
+                                       
+                                   } failure:nil];
+    return cell;
 }
 
 
@@ -82,7 +93,7 @@
 - (void)getMoviesFromAPI {
     NSLog(@"Getting Movie List from Rotten Tomatoes");
     
-    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=re53qkp6bw9zp86m6zn7763x&limit=40&country=us";
+    NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=re53qkp6bw9zp86m6zn7763x&limit=50&country=us";
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -122,16 +133,17 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        // This is totally a hack and not connected to the background jobs
-        [self waitForThreeSeconds];
+        [self waitForTwoSeconds];
+        [self getMoviesFromAPI];
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         });
     });
 }
 
-- (void)waitForThreeSeconds {
-    sleep(3);
+- (void)waitForTwoSeconds {
+    sleep(2);
 }
 
 

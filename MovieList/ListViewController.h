@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
+
 #import "MovieCell.h"   
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
