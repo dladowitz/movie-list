@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "MovieCell.h"
 
 
 @interface ListViewController ()
@@ -36,6 +37,8 @@
     
     // Configure the navigation bar title
     self.navigationItem.title = @"Top Box Office Movies";
+    //Set navigation buttons on top nav bar
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(onDetailsButton)];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -55,37 +58,64 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 // Using a custom UITableViewCell
-//    MovieCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomMovieCell"];
-//    cell.movieTitle.text = @"Hello World";
-//    return cell;
+    static NSString *movieTableIdentifier = @"MovieTableCell";
+    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:movieTableIdentifier];
+    
+    if (cell == nil)  {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MovieTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+//    cell.movieTitle.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
+//    cell.movieSynopsis.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
+//
+//    // Setting images
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+//    
+//    [cell.moviePoster setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//        cell.moviePoster.image = image;
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+//        NSLog(@"Request failed with error: %@", error);
+//    }];
+    return cell;
 
     
 // Using a default UITableViewCell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyIdentifier"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MyIdentifier"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+//    static NSString *movieTableIdentifier = @"MovieTableCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:movieTableIdentifier];
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:movieTableIdentifier];
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    }
+//    
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
+//    
+//    // Setting images
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+//    
+//    __weak UITableViewCell *weakCell = cell;
+//    
+//    [cell.imageView setImageWithURLRequest:request
+//                          placeholderImage:placeholderImage
+//                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//                                       
+//                                       weakCell.imageView.image = image;
+//                                       [weakCell setNeedsLayout];
+//                                       
+//                                   } failure:nil];
+//    return cell;
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
-    
-    // Setting images
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-    
-    __weak UITableViewCell *weakCell = cell;
-    
-    [cell.imageView setImageWithURLRequest:request
-                          placeholderImage:placeholderImage
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                       
-                                       weakCell.imageView.image = image;
-                                       [weakCell setNeedsLayout];
-                                       
-                                   } failure:nil];
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
 }
 
 
@@ -144,6 +174,14 @@
 
 - (void)waitForTwoSeconds {
     sleep(2);
+}
+
+
+#pragma mark - Accessing Movie Details methods
+
+- (void)onDetailsButton {
+    
+    [self.navigationController pushViewController:[[DetailsViewController alloc] init] animated:YES];
 }
 
 

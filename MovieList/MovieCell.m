@@ -10,6 +10,11 @@
 
 @implementation MovieCell
 
+@synthesize movieTitle = _movieTitle;
+@synthesize movieSynopsis = _movieSynopsis;
+@synthesize moviePoster = _moviePoster;
+
+
 - (void)awakeFromNib
 {
     // Initialization code

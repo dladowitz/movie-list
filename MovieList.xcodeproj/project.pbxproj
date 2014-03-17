@@ -20,11 +20,12 @@
 		AC130B6918D2C481002C14F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC130B5118D2C481002C14F8 /* UIKit.framework */; };
 		AC130B7118D2C481002C14F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC130B6F18D2C481002C14F8 /* InfoPlist.strings */; };
 		AC130B7318D2C481002C14F8 /* MovieListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC130B7218D2C481002C14F8 /* MovieListTests.m */; };
-		AC130B7F18D2C5FF002C14F8 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC130B7D18D2C5FF002C14F8 /* ListViewController.m */; };
-		AC130B8018D2C5FF002C14F8 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC130B7E18D2C5FF002C14F8 /* ListViewController.xib */; };
-		AC83877718D3E5C300758203 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83877618D3E5C300758203 /* MovieModel.m */; };
-		ACABFE7618D537A900B10FBA /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABFE7418D537A900B10FBA /* MovieCell.m */; };
-		ACABFE7718D537A900B10FBA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACABFE7518D537A900B10FBA /* MovieCell.xib */; };
+		AC74BE2C18D57E7A00F97977 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */; };
+		AC74BE2D18D57E7A00F97977 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */; };
+		ACABFE8B18D57DBD00B10FBA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABFE8818D57DBD00B10FBA /* ListViewController.m */; };
+		ACABFE8C18D57DBD00B10FBA /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */; };
+		ACABFE9018D57DF200B10FBA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACABFE8D18D57DF200B10FBA /* MovieCell.xib */; };
+		ACABFE9118D57DF200B10FBA /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABFE8E18D57DF200B10FBA /* MovieCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,14 +57,15 @@
 		AC130B6E18D2C481002C14F8 /* MovieListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MovieListTests-Info.plist"; sourceTree = "<group>"; };
 		AC130B7018D2C481002C14F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC130B7218D2C481002C14F8 /* MovieListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListTests.m; sourceTree = "<group>"; };
-		AC130B7C18D2C5FF002C14F8 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		AC130B7D18D2C5FF002C14F8 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		AC130B7E18D2C5FF002C14F8 /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
-		AC83877518D3E5C300758203 /* MovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieModel.h; sourceTree = "<group>"; };
-		AC83877618D3E5C300758203 /* MovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieModel.m; sourceTree = "<group>"; };
-		ACABFE7318D537A900B10FBA /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
-		ACABFE7418D537A900B10FBA /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
-		ACABFE7518D537A900B10FBA /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		AC74BE2A18D57E7A00F97977 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		ACABFE8818D57DBD00B10FBA /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		ACABFE8918D57DBD00B10FBA /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		ACABFE8D18D57DF200B10FBA /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		ACABFE8E18D57DF200B10FBA /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		ACABFE8F18D57DF200B10FBA /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,9 +171,12 @@
 		AC130B8118D2C711002C14F8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC130B7C18D2C5FF002C14F8 /* ListViewController.h */,
-				AC130B7D18D2C5FF002C14F8 /* ListViewController.m */,
-				AC130B7E18D2C5FF002C14F8 /* ListViewController.xib */,
+				AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */,
+				AC74BE2A18D57E7A00F97977 /* DetailsViewController.h */,
+				AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */,
+				ACABFE8918D57DBD00B10FBA /* ListViewController.h */,
+				ACABFE8818D57DBD00B10FBA /* ListViewController.m */,
+				ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -179,8 +184,6 @@
 		AC83877418D3E59400758203 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AC83877518D3E5C300758203 /* MovieModel.h */,
-				AC83877618D3E5C300758203 /* MovieModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -188,9 +191,9 @@
 		AC83877818D5287F00758203 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACABFE7318D537A900B10FBA /* MovieCell.h */,
-				ACABFE7418D537A900B10FBA /* MovieCell.m */,
-				ACABFE7518D537A900B10FBA /* MovieCell.xib */,
+				ACABFE8F18D57DF200B10FBA /* MovieCell.h */,
+				ACABFE8E18D57DF200B10FBA /* MovieCell.m */,
+				ACABFE8D18D57DF200B10FBA /* MovieCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,8 +277,9 @@
 			files = (
 				AC130B5818D2C481002C14F8 /* InfoPlist.strings in Resources */,
 				AC130B6018D2C481002C14F8 /* Images.xcassets in Resources */,
-				ACABFE7718D537A900B10FBA /* MovieCell.xib in Resources */,
-				AC130B8018D2C5FF002C14F8 /* ListViewController.xib in Resources */,
+				AC74BE2C18D57E7A00F97977 /* DetailsViewController.xib in Resources */,
+				ACABFE9018D57DF200B10FBA /* MovieCell.xib in Resources */,
+				ACABFE8C18D57DBD00B10FBA /* ListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,11 +331,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC83877718D3E5C300758203 /* MovieModel.m in Sources */,
-				ACABFE7618D537A900B10FBA /* MovieCell.m in Sources */,
 				AC130B5E18D2C481002C14F8 /* AppDelegate.m in Sources */,
+				AC74BE2D18D57E7A00F97977 /* DetailsViewController.m in Sources */,
 				AC130B5A18D2C481002C14F8 /* main.m in Sources */,
-				AC130B7F18D2C5FF002C14F8 /* ListViewController.m in Sources */,
+				ACABFE9118D57DF200B10FBA /* MovieCell.m in Sources */,
+				ACABFE8B18D57DBD00B10FBA /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

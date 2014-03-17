@@ -11,7 +11,8 @@
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
 
-#import "MovieCell.h"   
+//#import "MovieCell.h"   
+#import "DetailsViewController.h"
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
