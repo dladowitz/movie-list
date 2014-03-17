@@ -35,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    
     // Configure the navigation bar title
     self.navigationItem.title = @"Top Box Office Movies";
     //Set navigation buttons on top nav bar
@@ -42,6 +43,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
     
     [self showSpinnerAnimation];
 //    [self getMoviesFromAPI];
@@ -66,19 +68,19 @@
         cell = [nib objectAtIndex:0];
     }
     
-//    cell.movieTitle.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
-//    cell.movieSynopsis.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
-//
-//    // Setting images
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-//    
-//    [cell.moviePoster setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-//        cell.moviePoster.image = image;
-//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-//        NSLog(@"Request failed with error: %@", error);
-//    }];
+    cell.movieTitle.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
+    cell.movieSynopsis.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
+
+    // Setting images
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
+    
+    [cell.moviePoster setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        cell.moviePoster.image = image;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        NSLog(@"Request failed with error: %@", error);
+    }];
     return cell;
 
     

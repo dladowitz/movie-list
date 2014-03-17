@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieList/ListViewController.m"
-            timestampString = "416687002.557189"
+            timestampString = "416787119.354374"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "-getMoviesFromAPI"
             landmarkType = "5">
          </BreakpointContent>
