@@ -20,8 +20,7 @@
 		AC130B6918D2C481002C14F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC130B5118D2C481002C14F8 /* UIKit.framework */; };
 		AC130B7118D2C481002C14F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC130B6F18D2C481002C14F8 /* InfoPlist.strings */; };
 		AC130B7318D2C481002C14F8 /* MovieListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC130B7218D2C481002C14F8 /* MovieListTests.m */; };
-		AC74BE2C18D57E7A00F97977 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */; };
-		AC74BE2D18D57E7A00F97977 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */; };
+		AC2ECCC818D7B4040022BA3F /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2ECCC718D7B4040022BA3F /* Movie.m */; };
 		ACABFE8B18D57DBD00B10FBA /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABFE8818D57DBD00B10FBA /* ListViewController.m */; };
 		ACABFE8C18D57DBD00B10FBA /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */; };
 		ACABFE9018D57DF200B10FBA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACABFE8D18D57DF200B10FBA /* MovieCell.xib */; };
@@ -57,9 +56,8 @@
 		AC130B6E18D2C481002C14F8 /* MovieListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MovieListTests-Info.plist"; sourceTree = "<group>"; };
 		AC130B7018D2C481002C14F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC130B7218D2C481002C14F8 /* MovieListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListTests.m; sourceTree = "<group>"; };
-		AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
-		AC74BE2A18D57E7A00F97977 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
-		AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		AC2ECCC618D7B4040022BA3F /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		AC2ECCC718D7B4040022BA3F /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		ACABFE8818D57DBD00B10FBA /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		ACABFE8918D57DBD00B10FBA /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
@@ -171,9 +169,6 @@
 		AC130B8118D2C711002C14F8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC74BE2918D57E7A00F97977 /* DetailsViewController.xib */,
-				AC74BE2A18D57E7A00F97977 /* DetailsViewController.h */,
-				AC74BE2B18D57E7A00F97977 /* DetailsViewController.m */,
 				ACABFE8918D57DBD00B10FBA /* ListViewController.h */,
 				ACABFE8818D57DBD00B10FBA /* ListViewController.m */,
 				ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */,
@@ -184,6 +179,8 @@
 		AC83877418D3E59400758203 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC2ECCC618D7B4040022BA3F /* Movie.h */,
+				AC2ECCC718D7B4040022BA3F /* Movie.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -277,7 +274,6 @@
 			files = (
 				AC130B5818D2C481002C14F8 /* InfoPlist.strings in Resources */,
 				AC130B6018D2C481002C14F8 /* Images.xcassets in Resources */,
-				AC74BE2C18D57E7A00F97977 /* DetailsViewController.xib in Resources */,
 				ACABFE9018D57DF200B10FBA /* MovieCell.xib in Resources */,
 				ACABFE8C18D57DBD00B10FBA /* ListViewController.xib in Resources */,
 			);
@@ -331,8 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2ECCC818D7B4040022BA3F /* Movie.m in Sources */,
 				AC130B5E18D2C481002C14F8 /* AppDelegate.m in Sources */,
-				AC74BE2D18D57E7A00F97977 /* DetailsViewController.m in Sources */,
 				AC130B5A18D2C481002C14F8 /* main.m in Sources */,
 				ACABFE9118D57DF200B10FBA /* MovieCell.m in Sources */,
 				ACABFE8B18D57DBD00B10FBA /* ListViewController.m in Sources */,

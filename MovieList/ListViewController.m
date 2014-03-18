@@ -7,14 +7,16 @@
 //
 
 #import "ListViewController.h"
+#import "Movie.h"
 #import "MovieCell.h"
+
 
 
 @interface ListViewController ()
 
 //are the params on one of these backwards?
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *movieList;
+@property (nonatomic, strong) NSArray *movies;
 
 @end
 
@@ -25,7 +27,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-
+        
+    NSLog(@"Got to initWithNibName");
     };
     return self;
 }
@@ -34,6 +37,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Newer custom cell stuff
+    UINib *movieCellNib = [UINib nibWithNibName:@"MovieTableCell" bundle:nil];
+    [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieTableCell"];
     
     
     // Configure the navigation bar title
@@ -54,71 +61,25 @@
 #pragma mark - Table view methods
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movieList.count;
+    return self.movies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-// Using a custom UITableViewCell
-    static NSString *movieTableIdentifier = @"MovieTableCell";
-    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:movieTableIdentifier];
-    
-    if (cell == nil)  {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MovieTableCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    
-    cell.movieTitle.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
-    cell.movieSynopsis.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieTableCell" forIndexPath:indexPath];
 
-    // Setting images
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-    
-    [cell.moviePoster setImageWithURLRequest:request placeholderImage:[UIImage imageNamed:@"placeholder.png"] success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        cell.moviePoster.image = image;
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"Request failed with error: %@", error);
-    }];
+    cell.movie = self.movies[indexPath.row];
+
     return cell;
 
     
-// Using a default UITableViewCell
-//    static NSString *movieTableIdentifier = @"MovieTableCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:movieTableIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:movieTableIdentifier];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    }
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"title"]];
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"synopsis"]];
-//    
-//    // Setting images
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.movieList[indexPath.row][@"posters"][@"thumbnail"]]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    UIImage *placeholderImage = [UIImage imageNamed:@"placeholder"];
-//    
-//    __weak UITableViewCell *weakCell = cell;
-//    
-//    [cell.imageView setImageWithURLRequest:request
-//                          placeholderImage:placeholderImage
-//                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-//                                       
-//                                       weakCell.imageView.image = image;
-//                                       [weakCell setNeedsLayout];
-//                                       
-//                                   } failure:nil];
-//    return cell;
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 90;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 150;
+//}
 
 
 #pragma mark - API methods
@@ -130,31 +91,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *rottenTomatoesResults = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"Finished API Call");
         
-        self.movieList = [rottenTomatoesResults objectForKey:@"movies"];
+        self.movies = [Movie moviesWithArray:rottenTomatoesResults[@"movies"]];
         [self.tableView reloadData];
-    
-        // Here are a bunch of ways to manipulate the returned dictionary.
-        // Probably should put data into a model
 
-        // puts movie titles into an array and prints to log
-        NSMutableArray *movieTitles = [[NSMutableArray alloc] init];
-        for (NSDictionary *movieData in self.movieList) {
-            [movieTitles addObject: movieData[@"title"] ];
-        }
-
-        for (NSArray *movieTitle in movieTitles) {
-           NSLog(@"%@", movieTitle);
-        }
-        
-        // NSLog(@"%@", movieTitles);
-
-        // prints title of first movie
-        // NSLog(@"%@", [rottenTomatoesResults[@"movies"] objectAtIndex: 0][@"title"]   );
-        
-        // prints list of everything Rotten Tomatoes returned
-        // NSLog(@"%@", rottenTomatoesResults);
-        
     }];
 };
 
@@ -183,7 +124,7 @@
 
 - (void)onDetailsButton {
     
-    [self.navigationController pushViewController:[[DetailsViewController alloc] init] animated:YES];
+//    [self.navigationController pushViewController:[[DetailsViewController alloc] init] animated:YES];
 }
 
 
