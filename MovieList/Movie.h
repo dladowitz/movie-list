@@ -13,7 +13,7 @@
 // Instance properties
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *synopsis;
-//@property (nonatomic, strong) UIImage *thumbnail;
+@property (nonatomic, strong) NSString *thumbnail;
 
 //Instance Methods
 - (id)initWithDictionary:(NSDictionary *)dictionary;

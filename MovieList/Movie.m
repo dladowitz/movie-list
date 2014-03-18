@@ -1,4 +1,4 @@
-//
+
 //  Movie.m
 //  MovieList
 //
@@ -15,7 +15,7 @@
     if (self) {
         self.title = dictionary[@"title"];
         self.synopsis = dictionary[@"synopsis"];
-//        self.movieThumbnail = dictionary[@"location"];
+        self.thumbnail = dictionary[@"posters"][@"thumbnail"];
     }
     return self;
 }
@@ -27,6 +27,7 @@
     for (NSDictionary *dictionary in array) {
         Movie *movie = [[Movie alloc] initWithDictionary:dictionary];
         NSLog(@"%@", movie.title);
+//        NSLog(@"%@", movie.thumbnail);
         [movies addObject:movie];
     }
     NSLog(@"Finishing moviesWithArray");
