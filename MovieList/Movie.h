@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *synopsis;
 @property (nonatomic, strong) NSString *thumbnail;
+@property (nonatomic, strong) NSString *cast;
 
 //Instance Methods
 - (id)initWithDictionary:(NSDictionary *)dictionary;

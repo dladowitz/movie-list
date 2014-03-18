@@ -16,6 +16,14 @@
         self.title = dictionary[@"title"];
         self.synopsis = dictionary[@"synopsis"];
         self.thumbnail = dictionary[@"posters"][@"original"];
+        
+        NSDictionary *cast = dictionary[@"abridged_cast"];
+        NSMutableString *castNames = [NSMutableString string];
+        
+        for (NSDictionary* actor in cast) {
+            [castNames appendFormat:@"%@, ",actor[@"name"]];
+        }
+        self.cast = castNames;
     }
     return self;
 }

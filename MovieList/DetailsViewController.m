@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *movieImage;
 @property (weak, nonatomic) IBOutlet UILabel *movieName;
 @property (weak, nonatomic) IBOutlet UILabel *movieFullSynopsis;
+@property (weak, nonatomic) IBOutlet UILabel *castLabel;
 
 @end
 
@@ -34,6 +35,7 @@
     
     self.movieName.text = self.movie.title;
     self.movieFullSynopsis.text = self.movie.synopsis;
+    self.castLabel.text = self.movie.cast;
     NSURL *imageUrl = [NSURL URLWithString:self.movie.thumbnail];
     UIImage *placeholderImage = [UIImage imageNamed:@"MoviePlaceholder"];
     [self.movieImage setImageWithURL:imageUrl placeholderImage:placeholderImage];
