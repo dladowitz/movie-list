@@ -15,7 +15,7 @@
     if (self) {
         self.title = dictionary[@"title"];
         self.synopsis = dictionary[@"synopsis"];
-        self.thumbnail = dictionary[@"posters"][@"thumbnail"];
+        self.thumbnail = dictionary[@"posters"][@"original"];
     }
     return self;
 }

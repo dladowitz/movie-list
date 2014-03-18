@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F8FB697174746E0B3FCCE39 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F78E4C187647AA82DDB9C4 /* libPods.a */; };
+		AC0F1C7E18D8142900B96163 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0F1C7C18D8142900B96163 /* DetailsViewController.m */; };
+		AC0F1C7F18D8142900B96163 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0F1C7D18D8142900B96163 /* DetailsViewController.xib */; };
 		AC130B4E18D2C481002C14F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC130B4D18D2C481002C14F8 /* Foundation.framework */; };
 		AC130B5018D2C481002C14F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC130B4F18D2C481002C14F8 /* CoreGraphics.framework */; };
 		AC130B5218D2C481002C14F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC130B5118D2C481002C14F8 /* UIKit.framework */; };
@@ -40,6 +42,9 @@
 /* Begin PBXFileReference section */
 		65EE8F013EA946AA8380CC98 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		A7F78E4C187647AA82DDB9C4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0F1C7B18D8142900B96163 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		AC0F1C7C18D8142900B96163 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		AC0F1C7D18D8142900B96163 /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		AC130B4A18D2C481002C14F8 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC130B4D18D2C481002C14F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AC130B4F18D2C481002C14F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -172,6 +177,9 @@
 				ACABFE8918D57DBD00B10FBA /* ListViewController.h */,
 				ACABFE8818D57DBD00B10FBA /* ListViewController.m */,
 				ACABFE8A18D57DBD00B10FBA /* ListViewController.xib */,
+				AC0F1C7B18D8142900B96163 /* DetailsViewController.h */,
+				AC0F1C7C18D8142900B96163 /* DetailsViewController.m */,
+				AC0F1C7D18D8142900B96163 /* DetailsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 			files = (
 				AC130B5818D2C481002C14F8 /* InfoPlist.strings in Resources */,
 				AC130B6018D2C481002C14F8 /* Images.xcassets in Resources */,
+				AC0F1C7F18D8142900B96163 /* DetailsViewController.xib in Resources */,
 				ACABFE9018D57DF200B10FBA /* MovieCell.xib in Resources */,
 				ACABFE8C18D57DBD00B10FBA /* ListViewController.xib in Resources */,
 			);
@@ -330,6 +339,7 @@
 				AC2ECCC818D7B4040022BA3F /* Movie.m in Sources */,
 				AC130B5E18D2C481002C14F8 /* AppDelegate.m in Sources */,
 				AC130B5A18D2C481002C14F8 /* main.m in Sources */,
+				AC0F1C7E18D8142900B96163 /* DetailsViewController.m in Sources */,
 				ACABFE9118D57DF200B10FBA /* MovieCell.m in Sources */,
 				ACABFE8B18D57DBD00B10FBA /* ListViewController.m in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "DetailsViewController.h"
 #import "Movie.h"
 #import "MovieCell.h"
 
@@ -45,8 +46,6 @@
     
     // Configure the navigation bar title
     self.navigationItem.title = @"Top Box Office Movies";
-    //Set navigation buttons on top nav bar
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Details" style:UIBarButtonItemStylePlain target:self action:@selector(onDetailsButton)];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -71,9 +70,19 @@
     cell.movie = self.movies[indexPath.row];
 
     return cell;
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"touched cell %ld",(long)indexPath.row);
     
-    
+    // Display Alert Message
+    MovieCell *cell = (MovieCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"You selected %@",cell.description);
+
+    DetailsViewController *dvc = [[DetailsViewController alloc] init];
+    dvc.movie = self.movies[indexPath.row];
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
