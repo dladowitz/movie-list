@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view from its nib.
     
     // Newer custom cell stuff
-    UINib *movieCellNib = [UINib nibWithNibName:@"MovieTableCell" bundle:nil];
+    UINib *movieCellNib = [UINib nibWithNibName:@"MovieCell" bundle:nil];
     [self.tableView registerNib:movieCellNib forCellReuseIdentifier:@"MovieTableCell"];
     
     
@@ -76,10 +76,10 @@
     
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return 150;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+}
 
 
 #pragma mark - API methods
